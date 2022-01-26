@@ -15,51 +15,51 @@
 
 <div>
 
-    <h2>(pseudo)Random string with symbols and numbers</h2>
-    <p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
+    <h2>Random string with symbols and numbers</h2>
+    <p>Uses Crypto Api to get cryptographically strong random values. Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
     
 
 
     <form name="random-character-password" id="frm1">
+        <b>Random number generation method:</b>
+        <br>
+
+        <input type="radio" id="crypto_random" name="random_method" value="crypto_random" checked>
+        <label for="crypto_random">Crypto Api</label><br>
+        <input type="radio" id="PseudoRandom" name="random_method" value="pseudo_random">
+        <label for="PseudoRandom">PseudoRandom</label><br>
+        <br>
+
+        <b>Use characters:</b>
+        <br>
         <input type="checkbox" id="uppercase_letters" name="uppercase_letters" value="uppercase" checked>
-        <label for="uppercase_letters"> UPPERCASE LETTERS</label><br>
+        <label for="uppercase_letters"> Uppercase [A-Z]</label><br>
         
         <input type="checkbox" id="lowercase_letters" name="lowercase_letters" value="lowercase" checked>
-        <label for="lowercase_letters"> lowercase letters</label><br>
+        <label for="lowercase_letters"> Lowercase [a-z]</label><br>
 
         <input type="checkbox" id="numbers" name="numbers" value="numbers" checked>
-        <label for="numbers"> numbers</label><br>
+        <label for="numbers"> numbers [1-9]</label><br>
 
         <input type="checkbox" id="symbols" name="symbols" value="symbols">
-        <label for="symbols"> symbols</label><br>
+        <label for="symbols"> symbols [!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]</label><br>
         
-        
+    
 
         <label for="password_length">password Length:</label>
-        <input type="number" id="password_length" name="password_length" value=12 required> 
+        <input type="number" id="password_length" name="password_length" value=12 min=1 max=50 required> 
+        <br>
         <br>
 
         <input type='button' value="Generate" onClick="generateNewPassword(this.form)""> 
-
-<!--         <button onclick="generateNewPassword(this.form)">Copy to clipboard</button>
-<input type="submit" value="Generate" onClick="generateNewPassword(this.form)">
-        <input type="reset"> -->
     </form>
 
 <br>
 
-<!--     <p>Generated password: <b><span id="new-password">N/A</span></b></p> -->
-
-     <!-- The text field -->
-<input type="text" value="New password" id="generated-password">
-
-<!-- The button used to copy the text -->
+<label for="generated_password">Generated password:</label><input type="text" value="New password" id="generated_password">
 <button onclick="copyToClipboard()">Copy to clipboard</button> 
-
-    <p>Generated password strength <b><span id="new-password">N/A</span></b></p>
+<p>Generated password strength <b><span id="new-password">N/A</span></b></p>
     
-
-
 <!-- <h2>Diceware pasword</h2>
 <p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
 
@@ -101,6 +101,7 @@
 
 
 
-    <script src="script.js"> </script>
+    <script src="/js/script.js"> </script>
+    <script src="/js/customrandom.js"> </script>
 </body>
 </html>
