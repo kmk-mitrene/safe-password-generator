@@ -1,33 +1,57 @@
-function generateNewPassword (form) {
+var useUppercaseLetters= false;
+var useLowercaseLetter= false;
+var useNumbers = false;
+var useSymbols = false;
+var useCrypto_random = false;
+var passwordLength = 0;
+var availableCharacters ="";
 
-    var useUppercaseLetters= form.uppercase_letters.checked;
-    var useLowercaseLetter= form.lowercase_letters.checked
-    var useNumbers = form.numbers.checked
-    var useSymbols = form.symbols.checked
-    var useCrypto_random = form.crypto_random.checked
-    var passwordLength = form.password_length.value
-    var generatedPasswordString ='';
+
+function getFormData (form) {
+    useUppercaseLetters= form.uppercase_letters.checked;
+    useLowercaseLetter= form.lowercase_letters.checked;
+    useNumbers = form.numbers.checked;
+    useSymbols = form.symbols.checked;
+    useCrypto_random = form.crypto_random.checked;
+    passwordLength = form.password_length.value;
+    
     if (useUppercaseLetters ||useLowercaseLetter || useNumbers || useSymbols) {
-      var availableCharacters= getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumbers, useSymbols)
-      if (useCrypto_random) {
-        for (let i = 0; i < passwordLength; i++) {
-          generatedPasswordString += availableCharacters.charAt(getCryptRandValues(availableCharacters.length))
-        }
-        updategeneratePasswordField(generatedPasswordString)
-      }
+      availableCharacters = getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumbers, useSymbols);
 
-      else {
-        for (let i = 0; i < passwordLength; i++) {
-          generatedPasswordString += availableCharacters.charAt(getPseudoRandomValues(availableCharacters.length))
-        }
-        updategeneratePasswordField(generatedPasswordString)
-      }
 
+      ;
+     // var generatedPasswordString = generateNewPassword (useCrypto_random, passwordLength, availableCharacters);
     }
     else {
       alert( 'Please, check at least one checkbox!' )
     }
+    document.getElementById("predicted_entropy").innerText = entropyPerPassword(availableCharacters.length, passwordLength);
 }
+
+
+
+function generateNewPassword () {
+  var generatedPasswordString ='';
+  if (useCrypto_random) {
+    for (let i = 0; i < passwordLength; i++) {
+      generatedPasswordString += availableCharacters.charAt(getCryptRandValues(availableCharacters.length))
+    }
+  }
+
+  else {
+    for (let i = 0; i < passwordLength; i++) {
+      generatedPasswordString += availableCharacters.charAt(getPseudoRandomValues(availableCharacters.length))
+    }
+  }
+  updategeneratePasswordField(generatedPasswordString)
+  document.getElementById("detected_entropy").innerText = passwordStrengthFromString(generatedPasswordString)
+  return generatedPasswordString
+  
+}
+
+
+
+
 
 
 function getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumbers, useSymbols) {
@@ -46,3 +70,6 @@ function getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumb
     }
     return availableCharacters;
   }
+
+
+  
