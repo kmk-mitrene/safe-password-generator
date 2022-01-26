@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <h1>Safe password generator</h1>
+        <p>about safe password generator Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan diam vel lectus finibus euismod.  Mauris nisl tortor, faucibus lacinia risus eu, vestibulum volutpat ligula. Cras in imperdiet tellus, ut fermentum nibh.</p>
+    </div>
+
+<div>
+
+    <h2>(pseudo)Random string with symbols and numbers</h2>
+    <p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
+    
+
+
+    <form name="random-character-password" id="frm1">
+        <input type="checkbox" id="uppercase_letters" name="uppercase_letters" value="uppercase" checked>
+        <label for="uppercase_letters"> UPPERCASE LETTERS</label><br>
+        
+        <input type="checkbox" id="lowercase_letters" name="lowercase_letters" value="lowercase" checked>
+        <label for="lowercase_letters"> lowercase letters</label><br>
+
+        <input type="checkbox" id="numbers" name="numbers" value="numbers" checked>
+        <label for="numbers"> numbers</label><br>
+
+        <input type="checkbox" id="symbols" name="symbols" value="symbols">
+        <label for="symbols"> symbols</label><br>
+        
+        
+
+        <label for="password_length">password Length:</label>
+        <input type="number" id="password_length" name="password_length" value=12 required> 
+        <br>
+
+        <input type='button' value="Generate" onClick="generateNewPassword(this.form)""> 
+
+<!--         <button onclick="generateNewPassword(this.form)">Copy to clipboard</button>
+<input type="submit" value="Generate" onClick="generateNewPassword(this.form)">
+        <input type="reset"> -->
+    </form>
+
+<br>
+
+<!--     <p>Generated password: <b><span id="new-password">N/A</span></b></p> -->
+
+     <!-- The text field -->
+<input type="text" value="New password" id="generated-password">
+
+<!-- The button used to copy the text -->
+<button onclick="copyToClipboard()">Copy to clipboard</button> 
+
+    <p>Generated password strength <b><span id="new-password">N/A</span></b></p>
+    
+
+
+<!-- <h2>Diceware pasword</h2>
+<p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
+
+
+
+
+<button type="button">Generate</button> 
+
+
+<h2>Generate from passphrase</h2>
+<p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
+<button type="button">Click Me!</button> 
+
+<h2>Generate from phrase</h2>
+<p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
+<button type="button">Click Me!</button> 
+ -->
+
+
+
+
+
+</div>
+    
+<!-- <div>
+
+    Evaluate password entropy
+
+
+</div>
+ -->
+  
+
+
+
+
+
+
+
+
+
+    <script src="script.js"> </script>
+</body>
+</html>
