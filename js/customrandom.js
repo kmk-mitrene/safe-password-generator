@@ -1,9 +1,9 @@
-let useUppercaseLetters = false
-let useLowercaseLetter = false
-let useNumbers = false
-let useSymbols = false
-let useCrypto_random = false
-let passwordLength = 0
+let useUppercaseLetters = true
+let useLowercaseLetter = true
+let useNumbers = true
+let useSymbols = true
+let useCrypto_random = true
+let passwordLength = 20
 let availableCharacters = ""
 
 function getFormData(form) {
@@ -18,12 +18,13 @@ function getFormData(form) {
     availableCharacters = getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumbers, useSymbols)
   }
   else {
-    alert('Please, check at least one checkbox!')
+    alert('Please, choose at least one character set!')
   }
   document.getElementById("predicted_entropy").innerText = entropyPerPassword(availableCharacters.length, passwordLength)
 }
 
 function generateNewPassword() {
+  availableCharacters = getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumbers, useSymbols)
   let generatedPasswordString = ''
   if (useCrypto_random) {
     for (let i = 0; i < passwordLength; i++) {

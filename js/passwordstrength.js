@@ -25,7 +25,6 @@ function detectSymbolSets(passwordText) {
 }
 
 function entropyPerPassword(possibleSymbols, symbolsInPassword) {
-    let entropyPerPassword = Math.ceil(symbolsInPassword * Math.log2(possibleSymbols))
-    return entropyPerPassword
+    return Math.ceil(symbolsInPassword * Math.log2(possibleSymbols))
 }
 
