@@ -10,12 +10,9 @@
 
     <div>
         <h1>Safe password generator</h1>
-        <p>about safe password generator Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan diam vel lectus finibus euismod.  Mauris nisl tortor, faucibus lacinia risus eu, vestibulum volutpat ligula. Cras in imperdiet tellus, ut fermentum nibh.</p>
     </div>
-
 <div>
-
-    <h2>Random string with symbols and numbers</h2>
+    <h2>Random password with symbols and numbers</h2>
     <p>Uses Crypto Api to get cryptographically strong random values. Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>
     
 
@@ -24,43 +21,44 @@
         <b>Random number generation method:</b>
         <br>
 
-        <input type="radio" id="crypto_random" name="random_method" value="crypto_random" checked>
+        <input type="radio" id="crypto_random" name="random_method" value="crypto_random" onChange="getFormData(this.form)" checked>
         <label for="crypto_random">Crypto Api</label><br>
-        <input type="radio" id="PseudoRandom" name="random_method" value="pseudo_random">
+        <input type="radio" id="PseudoRandom" name="random_method" value="pseudo_random" onChange="getFormData(this.form)">
         <label for="PseudoRandom">PseudoRandom</label><br>
         <br>
 
         <b>Use characters:</b>
         <br>
-        <input type="checkbox" id="uppercase_letters" name="uppercase_letters" value="uppercase" checked>
+        <input type="checkbox" id="uppercase_letters" name="uppercase_letters" value="uppercase" onChange="getFormData(this.form)" checked>
         <label for="uppercase_letters"> Uppercase [A-Z]</label><br>
         
-        <input type="checkbox" id="lowercase_letters" name="lowercase_letters" value="lowercase" checked>
+        <input type="checkbox" id="lowercase_letters" name="lowercase_letters" value="lowercase" onChange="getFormData(this.form)" checked>
         <label for="lowercase_letters"> Lowercase [a-z]</label><br>
 
-        <input type="checkbox" id="numbers" name="numbers" value="numbers" checked>
+        <input type="checkbox" id="numbers" name="numbers" value="numbers" onChange="getFormData(this.form)" checked>
         <label for="numbers"> numbers [1-9]</label><br>
 
-        <input type="checkbox" id="symbols" name="symbols" value="symbols">
+        <input type="checkbox" id="symbols" name="symbols" value="symbols" onChange="getFormData(this.form)" >
         <label for="symbols"> symbols [!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]</label><br>
         
     
 
         <label for="password_length">password Length:</label>
-        <input type="number" id="password_length" name="password_length" value=12 min=1 max=50 required> 
+        <input type="number" id="password_length" name="password_length" value=20 min=1 max=100 required onChange="getFormData(this.form)" > 
         <br>
         <br>
 
-        <input type='button' value="Generate" onClick="generateNewPassword(this.form)""> 
+        <input type='button' value="Generate" onClick="generateNewPassword()"> 
     </form>
 
 <br>
-Predicted password Entropy <span id="predicted_entropy">N/A</span>
+Predicted password entropy: <span id="predicted_entropy" >120</span> bits.
+<br>
 <br>
 
 <label for="generated_password">Generated password:</label><input type="text" value="New password" id="generated_password">
 <button onclick="copyToClipboard()">Copy to clipboard</button> 
-<p>Generated password strength <b><span id="new-password">N/A</span></b></p>
+<p>Generated password Entropy <b><span id="detected_entropy">N/A</span></b> bits</p>
     
 <!-- <h2>Diceware pasword</h2>
 <p>Pellentesque lobortis placerat lacus, eget efficitur mi volutpat at. In vitae lorem scelerisque, consectetur nisi id, iaculis nibh. Donec ullamcorper accumsan gravida. Ut volutpat dolor eu libero convallis placerat. Nam non hendrerit neque. Praesent bibendum odio vel euismod pulvinar.</p>

@@ -17,10 +17,3 @@ function copyToClipboard() {
   var copyText = document.getElementById("generated_password");
   navigator.clipboard.writeText(copyText.value);
   } 
-
-
-
-funtion  listenToChanges () {
-
-  predicted_entropy
-}
