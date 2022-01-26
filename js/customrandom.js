@@ -9,6 +9,7 @@ function generateNewPassword (form) {
     var generatedPasswordString ='';
     if (useUppercaseLetters ||useLowercaseLetter || useNumbers || useSymbols) {
       var availableCharacters= getAvailableCharacters(useUppercaseLetters, useLowercaseLetter, useNumbers, useSymbols)
+      entropyPerPassword(availableCharacters.length, passwordLength);
       if (useCrypto_random) {
         for (let i = 0; i < passwordLength; i++) {
           generatedPasswordString += availableCharacters.charAt(getCryptRandValues(availableCharacters.length))
